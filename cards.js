@@ -25,6 +25,25 @@ class Deck {
     }
 }
 
+shuffle() {
+    let counter = this.deck.length, temp, i;
+    while(counter) {
+        i = Math.floor(Math.random() * counter--);
+        temp = this.deck[counter];
+        this.deck[counter] = this.deck[i];
+        this.deck[i] = temp;
+    }
+    return this.deck;
+}
+
+deal() {
+    let hand = [];
+    while(hand.length < 2) {
+        hand.push(this.deck.pop());
+    }
+    return hand;
+}
+
 let deck = new Deck();
 // deck.createDeck(suits, values);
 console.log(deck.createDeck(suits, values));
