@@ -1,3 +1,7 @@
+
+
+
+
 button.submit {
   float: right;
 }
@@ -44,4 +48,61 @@ button.edit {
 
 .top-30 {
   margin-top: 30px;
+}
+
+
+
+
+
+
+.nav {
+  margin-left: 900px;
+  
+ 
+
+}
+.hero-image {
+  background-image: url("../images/cards.jpg"); /* The image used */
+  background-color: #cccccc; /* Used if the image is unavailable */
+  height: 700px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  margin-top: -250px
+}
+
+
+.hero-logo {
+  text-align: left;
+  color: white;
+ 
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  right: 60%;
+  transform: translate(-50%, -50%);
+  color: black;
+  opacity: 85%;
+ 
+  background-color:whitesmoke;
+  padding: 50px
+}
+.hero-leaderboard {
+  text-align: center;
+  position: absolute;
+  top: 30%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+opacity: 85%; 
+  color: black;
+  background-color:whitesmoke;
+  padding: 50px
+}
+
+ul {
+  list-style-type: none;
+  text-align: center;
 }
