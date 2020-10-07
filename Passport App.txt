@@ -1,0 +1,8 @@
+Passport app
+npm install express
+npm install body-parser express-session
+npm install passport
+npm install passport-local-mongoose
+npm install connect-ensure-login
+I used this site to build and understand how to use passport.
+https://www.sitepoint.com/local-authentication-using-passport-node-js/
