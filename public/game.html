@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+    <title>Game</title>
+</head>
+
+<body>
+
+    <!-- NavBar=================================================================================================================================== -->
+
+    <!-- Logo -->
+    <div class="hero-logo">
+        <img src="./images/blackjack_logo.png" width="600" height="300" alt="" loading="lazy">
+    </div>
+
+    <!-- Nav Links -->
+
+    <div class="fixed-top">
+        <ul class="nav">
+
+            <li class="nav-item ">
+                <a class="nav-link mx-4" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+
+                <a class="nav-link  mx-4" href="leaderboard.html">Leaderboard</a>
+            </li>
+            <li class="nav-item">
+
+                <a class="nav-link mx-4" href="rules.html">Rules</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link active mx-4" href="account.html" >Account</a>
+            </li>
+        </ul>
+    </div>
+    <!-- End NavBar=================================================================================================================================== -->
+
+    <!-- Table Background image -->
+    <div class="container">
+        <div class="hero-image3">
+            <div class="cards-image">
+                <!-- ==============THESE IMAGES NEED TO CHANGE DYNAMICALLY BASED ON GAME================================================ -->
+                <img src="./images/card back black.png" id="dealer-card1" width="150" height="229.23299565846602px"
+                    alt="...">
+                <img src="./images/PNG/10C.png" id="dealer-card2" width="150" height="229.23299565846602px" alt="...">
+                <img src="./images/card back black.png" id="player-card1" width="150" height="229.23299565846602px"
+                    alt="...">
+                <img src="./images/PNG/4D.png" id="player-card2" width="150" height="229.23299565846602px" alt="...">
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <div class="container" id="bank">
+                        <!-- =================================================HANDLEBARS NEEDED TO GENERATE BANK & BET CONTENT============================================ -->
+                        <h1>Bank</h1>
+                        <h3>Current Total: {$$$$$$}</h3>
+                        <h3>Current Bet: {$$$$$$$}</h3>
+                        <a class="btn btn-primary btn-lg btn-block"  role="button">Increase Bet</a>
+                        <a class="btn btn-primary btn-lg btn-block"  role="button">Insurance {Disabled until possible}</a>
+                        <a class="btn btn-primary btn-lg btn-block"  role="button">Double Down {Disabled until possible}</a>
+                        <a class="btn btn-primary btn-lg btn-block"  role="button">Split {Disabled until possible}</a>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="container" id="dealer-hand-total">
+                        <!-- =================================================HANDLEBARS NEEDED TO GENERATE HAND CONTENT============================================ -->
+                        <h4>Dealer: {hand total}</h4>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="container" id="player-hand-total">
+                        <!-- =================================================HANDLEBARS NEEDED TO GENERATE HAND CONTENT============================================ -->
+                        <h4>Player: {hand total}</h4>
+                    </div>
+                </div>
+
+            </div>
+            <a class="btn btn-primary btn-lg" id="btn-hit" role="button">Hit</a>
+            <a class="btn btn-primary btn-lg" id="btn-stand" role="button">Stand</a>
+            <div class="col-4">
+            <div class="container" id="winOrBust">
+                <h3>Player {WINS!} or {BUST}</h3>
+
+            </div>
+</div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <footer class="footer"> © 2020 Created by: </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
