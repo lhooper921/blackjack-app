@@ -1,14 +1,14 @@
-const Card = require("card.js");
+// const Card = require("card.js");
 
 var suits = ["spades", "diamonds", "clubs", "hearts"];
 var values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 
-// class Card {
-//     constructor(suit, value) {
-//         this.suit = suit;
-//         this.value = value;
-//     }
-// }
+class Card {
+    constructor(suit, value) {
+        this.suit = suit;
+        this.value = value;
+    }
+}
 
 let card = new Card("hearts", "Q");
 
@@ -42,11 +42,19 @@ class Deck {
             hand.push(this.deck.pop());
         }
         return hand;
+
     }
 }
 
 let deck = new Deck();
+
+// Perhaps link this to a 
+function addDeck(){
+    
+}
+
 // deck.createDeck(suits, values);
+
 console.log(deck.createDeck(suits, values));
 
 module.exports = Deck;
