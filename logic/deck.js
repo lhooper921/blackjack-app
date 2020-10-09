@@ -1,14 +1,14 @@
-const Card = require("card.js");
-
 var suits = ["spades", "diamonds", "clubs", "hearts"];
 var values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 
-// class Card {
-//     constructor(suit, value) {
-//         this.suit = suit;
-//         this.value = value;
-//     }
-// }
+// const Card = require("./card.js");
+
+class Card {
+    constructor(suit, value) {
+        this.suit = suit;
+        this.value = value;
+    }
+}
 
 let card = new Card("hearts", "Q");
 
@@ -17,7 +17,7 @@ class Deck {
         this.deck = [];
     }
 
-    createDeck(suits, values) {
+    createDeck() {
         for (let suit of suits) {
             for (let value of values) {
                 this.deck.push(new Card(suit, value));
@@ -43,10 +43,21 @@ class Deck {
         }
         return hand;
     }
+
+    hit() {
+        hand.push(this.deck.pop());
+        console.log(hand);
+        return hand;
+    }
 }
 
-let deck = new Deck();
-// deck.createDeck(suits, values);
-console.log(deck.createDeck(suits, values));
+// let deck = new Deck();
+// // deck.createDeck(suits, values);
+
+// // console.log(deck);
+// // console.log(deck.hit);
+// console.log(deck.createDeck(suits, values));
+// console.log(deck.shuffle());
+// console.log(deck.deal());
 
 module.exports = Deck;
