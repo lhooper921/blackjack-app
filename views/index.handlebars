@@ -27,12 +27,32 @@
 <div class="col-6 ">
                             
                 <!-- =======================================================Need Handlebars to generate content============================================================= -->
-                            <ol>
-                                <li> Leader 1 : score 1
-                                </li>
-                                <li> Leader 2: score 2
-                                </li>
-                            </ol>
+      <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                
+                                <td>Username</td>
+                                <td>Total Chips</td>
+                                
+                        
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <div>
+                                {{#each user}}
+                                <tr>
+                                    
+                                    
+                                    <td>{{this.userName}}</td>
+                                    <td>{{this.chips}}</td>
+                                    
+                                </tr>
+                                {{/each}}
+                            </div>
+                        </tbody>
+                    </table>
+
+
                  <!-- ======================================================================================================================================================= -->
 </div></div>
                         </div>

@@ -8,33 +8,30 @@
             <div class="container" id="leader-table">
                 <div class="row">
                     <div class="col-12">
-                    <table class="table table-hover">
+<table class="table table-striped">
+                        <thead>
+                            <tr>
+                                
+                                <td>Username</td>
+                                <td>Total Chips</td>
+                                
                         
-                        
-                           {{!-- Basic structure of handlebars table template --}}
-                {{!-- {{#each array.[0]}} gets the first JSON object in the array and iterates over the object's attributes.
-                "{{@key}}"" renders the object's attribute name.
-                "{{#each array}}"" iterates over each JSON object in the array.
-                "{{#each this}}"" iterates over each attribute in the current object.
-                "{{this}}"" renders the value for the current attribute. --}}
-
-<thead>
-  <tr>
-    {{#each array.[0]}}
-      <th>{{@key}}</th>
-    {{/each}}
-  </tr>
-</thead>
-<tbody>
-  {{#each array}}
-    <tr>
-      {{#each this}}
-        <td>{{this}}</td>
-      {{/each}}
-    </tr>
-  {{/each}}
-</tbody>
-</table>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <div>
+                                {{#each user}}
+                                <tr>
+                                    
+                                    
+                                    <td>{{this.userName}}</td>
+                                    <td>{{this.chips}}</td>
+                                    
+                                </tr>
+                                {{/each}}
+                            </div>
+                        </tbody>
+                    </table>
                       </table>
                 </div>
             </div>
