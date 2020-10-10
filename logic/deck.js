@@ -1,6 +1,5 @@
 var suits = ["Spades", "Diamonds", "Clubs", "Hearts"];
 var values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
-let hand = [];
 
 class Card {
     constructor(suit, value, weight) {
@@ -42,6 +41,7 @@ class Deck {
     }
     
     deal() {
+        let hand = [];
         while (hand.length < 2) {
             hand.push(this.deck.pop());
         }
