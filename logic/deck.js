@@ -2,8 +2,6 @@ var suits = ["spades", "diamonds", "clubs", "hearts"];
 var values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 let hand = [];
 
-// const Card = require("./card.js");
-
 class Card {
     constructor(suit, value) {
         this.suit = suit;
@@ -42,6 +40,7 @@ class Deck {
             hand.push(this.deck.pop());
         }
         return hand;
+
     }
 
     hit() {
@@ -51,7 +50,18 @@ class Deck {
     }
 }
 
+
 let deck = new Deck();
+let deck = new Deck();
+
+// Perhaps link this to a 
+function addDeck(){
+    
+}
+
+// deck.createDeck(suits, values);
+
+console.log(deck.createDeck(suits, values));
 // // deck.createDeck(suits, values);
 
 // // console.log(deck);
