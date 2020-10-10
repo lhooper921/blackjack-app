@@ -1,42 +1,36 @@
-   
-    {{> header}}
-   
-    <!-- Cards Background image -->
-    <div class="container-fluid">
-        <div class="hero-image">
-            
-            <div class="container" id="leader-table">
-                <div class="row">
-                    <div class="col-12">
-<table class="table table-striped">
-                        <thead>
-                            <tr>
-                                
-                                <td>Username</td>
-                                <td>Total Chips</td>
-                                
-                        
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <div>
-                                {{#each user}}
-                                <tr>
-                                    
-                                    
-                                    <td>{{this.userName}}</td>
-                                    <td>{{this.chips}}</td>
-                                    
-                                </tr>
-                                {{/each}}
-                            </div>
-                        </tbody>
-                    </table>
-                      </table>
-                </div>
-            </div>
-        </div>
-        </div>
-    </div>
+{{> header}}
 
-     {{> footer}}
+<!-- Cards Background image -->
+<div class="container-fluid">
+  <div class="hero-image">
+<h1>Leaderboard</h1>
+    <div class="container" id="leader-table">
+      <div class="row">
+        <div class="col-12">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <td>Username</td>
+                <td>Total Chips</td>
+              </tr>
+            </thead>
+            <tbody>
+              <div>
+                {{#each user}}
+                <tr>
+                  <td>{{this.userName}}</td>
+                  <td>{{this.chips}}</td>
+
+                </tr>
+                {{/each}}
+              </div>
+            </tbody>
+          </table>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{> footer}}

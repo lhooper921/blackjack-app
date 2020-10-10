@@ -39,7 +39,7 @@
                         </thead>
                         <tbody>
                             <div>
-                                {{#each user}}
+                                {{#limit user limit="5"}}
                                 <tr>
                                     
                                     
@@ -47,7 +47,7 @@
                                     <td>{{this.chips}}</td>
                                     
                                 </tr>
-                                {{/each}}
+                                {{/limit}}
                             </div>
                         </tbody>
                     </table>
