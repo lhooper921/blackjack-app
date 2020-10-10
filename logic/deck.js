@@ -1,5 +1,3 @@
-// const Card = require("card.js");
-
 var suits = ["spades", "diamonds", "clubs", "hearts"];
 var values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 
@@ -17,7 +15,7 @@ class Deck {
         this.deck = [];
     }
 
-    createDeck(suits, values) {
+    createDeck() {
         for (let suit of suits) {
             for (let value of values) {
                 this.deck.push(new Card(suit, value));
@@ -44,8 +42,15 @@ class Deck {
         return hand;
 
     }
+
+    hit() {
+        hand.push(this.deck.pop());
+        console.log(hand);
+        return hand;
+    }
 }
 
+<<<<<<< HEAD
 let deck = new Deck();
 
 // Perhaps link this to a 
@@ -56,5 +61,15 @@ function addDeck(){
 // deck.createDeck(suits, values);
 
 console.log(deck.createDeck(suits, values));
+=======
+// let deck = new Deck();
+// // deck.createDeck(suits, values);
+
+// // console.log(deck);
+// // console.log(deck.hit);
+// console.log(deck.createDeck(suits, values));
+// console.log(deck.shuffle());
+// console.log(deck.deal());
+>>>>>>> 1e22148850b1f1df910c49e6cd2f5425a404cdae
 
 module.exports = Deck;
