@@ -21,20 +21,21 @@ module.exports = function (app) {
       // Here we've add our isAuthenticated middleware to this route.
       // If a user who is not logged in tries to access this route they will be redirected to the signup page
       app.get("/index", isAuthenticated, function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/index.html"));
+        res.render("index", {});
+        //res.sendFile(path.join(__dirname, "../public/index.html"));
       });
 
       app.get("/rules", isAuthenticated, function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/rules.html"))
+        res.render("rules", {});
+        //res.sendFile(path.join(__dirname, "../public/rules.handlebars"))
       });
 
       app.get("/account", isAuthenticated, function(req, res) {
-        console.log(req.user);
         res.render("account", req.user);
        // res.sendFile(path.join(__dirname, "../public/account.html"))
       });
     
       app.get("/leaderboard", isAuthenticated, function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/leaderboard.html"))
+        res.render("leaderboard", {});
       });
 };
