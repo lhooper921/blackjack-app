@@ -1,0 +1,13 @@
+DROP DATABASE IF EXISTS player_db;
+
+CREATE DATABSE player_db;
+
+USE player_db;
+CREATE TABLE users {
+    id INT AUTO_INCREMENT NOT NULL,
+    name VARCHAR(255) NULL,
+    email VARCHAR(255) DEFAULT NULL,
+    password VARCHAR(255) DEFAULT NULL,
+    chips INT NOT NULL DEFAULT 500,
+    PRIMARY (id)
+}
