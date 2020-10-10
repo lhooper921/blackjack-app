@@ -9,4 +9,5 @@ class Player {
     }
 }
 
-let player = new Player;
+// let player = new Player;
+module.exports = Player;

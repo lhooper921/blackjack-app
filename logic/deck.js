@@ -43,19 +43,19 @@ class Deck {
     
     deal() {
         while (hand.length < 2) {
-            hand.push(this.deck.shift());
+            hand.push(this.deck.pop());
         }
         return hand;
     }
 
     hit() {
-        hand.push(this.deck.shift());
+        hand.push(this.deck.pop());
         // console.log(hand);
         return hand;
     }
 }
 
-let deck = new Deck();
+// let deck = new Deck();
 // deck.createDeck(suits, values);
 // deck.shuffle();
 // console.log(deck.createDeck(suits, values));
