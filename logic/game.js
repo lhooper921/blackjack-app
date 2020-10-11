@@ -8,12 +8,16 @@ let players = new Array();
 let player = new Player;
 
 function startGame() {
-    deck.createDeck(suits, values);
-    // console.log(deck.createDeck(suits, values))
+    addDeck();
     shuffleDeck();
-    // console.log(deck);
     createPlayers();
     dealHands();
+}
+
+function addDeck() {
+    deck.createDeck(suits, values);
+    deck.createDeck(suits, values);
+    console.log(deck);
 }
 
 function shuffleDeck() {
@@ -36,23 +40,37 @@ function dealHands() {
     for (let x = 0; x < players.length; x++) {
         players[x].hand.push(deck.deal());
         console.log(players[x].hand);
+        renderCard();
     }
     console.log("Hand")
     console.log(players[0].hand);
     console.log(players[1].hand);
 }
 
-function renderCard(card, player) {
+function renderCard() {
+    // var playerHand = document.getElementById('hand_' + player);
+    let playerHand = [];
+    playerHand.appendChild(getCardUI());
+    console.log(playerHand)
+}
 
+function getCardUI() {
+    var el = document.createElement('div');
+    el.className = 'card';
+    el.innerHTML = players.hand.suit + '' + player.hand.value;
+    console.log("Players hand : " + players.hand.suit + '' + player.hand.value);
 }
 
 // AWAITING FOR LAUREN'S HTML
-// function createPlayerUI() {
-
-// }
+function createPlayerUI() {
+    document.getElementById('players').innerHTML = '';
+    for(let i = 0; i < players.length; i++) {
+        
+    }
+}
 
 startGame();
-
+ 
 // document.getElementById("hit-btn").addEventListener("click", function() {
     
 // });
