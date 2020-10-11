@@ -9,8 +9,6 @@ class Card {
     }
 }
 
-let card = new Card("hearts", "Q");
-
 class Deck {
     constructor() {
         this.deck = [];

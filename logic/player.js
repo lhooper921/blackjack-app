@@ -1,11 +1,11 @@
 const Deck = require("./deck.js");
-const Card = require("./card.js");
 
 class Player {
-    constructor(name, chips, hand) {
+    constructor(name, chips, hand, weight) {
         this.name = name;
         this.chips = chips;
         this.hand = hand;
+        this.weight = weight;
     }
 }
 
