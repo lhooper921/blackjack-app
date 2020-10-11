@@ -45,6 +45,14 @@ module.exports = function (app) {
       });
     
       app.get("/leaderboard", isAuthenticated, function(req, res) {
-        res.render("leaderboard", {});
+        db.User.findAll({
+          order: [['chips', 'DESC']],
+          limit: 10
+        })
+        .then((user) => {
+          console.log(user);
+          res.render("leaderboard", {user: user});
+        })
+        .catch((err) => console.log(err));
       });
 };
