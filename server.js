@@ -10,6 +10,10 @@ app.use(express.json());
 app.engine("handlebars", handlebars({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+app.use("/", (req, res) => {
+    res.render("index");
+});
+
 app.listen(PORT, () => {
     console.log("Server listening on PORT " + PORT);
 });
