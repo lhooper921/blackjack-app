@@ -69,6 +69,7 @@ class Player {
 
 var suits = ["Spades", "Diamonds", "Clubs", "Hearts"];
 var values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+
 // Global Variables
 let deck = new Deck;
 let players = new Array();
@@ -79,13 +80,12 @@ function startGame() {
     addDeck();
     shuffleDeck();
     createPlayers();
-    // createPlayersUI();
+    createPlayersUI();
     dealHands();
 }
 
 function addDeck() {
     deck.createDeck(suits, values);
-    console.log(deck);
 }
 
 function shuffleDeck() {
@@ -96,75 +96,168 @@ function shuffleDeck() {
 
 function createPlayers(num) {
     num = 2;
-    for(let i = 1; i <= num; i++) {
-        player = new Player(`player${i}`, 0, []);
+    for(let i = 0; i < num; i++) {
+        player = new Player(`${i}`, 0, []);
+
         players.push(player);
     }
-    console.log(players);
 }
 
 function dealHands() {
-    console.log(deck);
-    for (let x = 0; x < players.length; x++) {
-        let deal = deck.deal();
-        players[x].hand.push(deal);
-        // console.log(players[x].hand);
-        // renderCard(deal, x);
 
-        // let handWeight = players[currentPlayer].weight;
-        // for(let i = 0; i < players[x].hand.length; i++) {
-        //     handWeight += players[currentPlayer].hand.Card.weight;
-        //     console.log(handWeight)
-        // }
+    for(let j = 0; j < 2; j++) {
+        for (let x = 0; x < players.length; x++) {
+            let deal = deck.hit();
+            players[x].hand.push(deal);
+            console.log(players);
+
+            renderCard(deal, j);
+            updatePoints();
+            updateCardCount();
+        } 
     }
-    console.log("Hand")
-    console.log(players[0].hand[0][1]);
-    console.log(players[1].hand);
-    hitMe();
+    console.log(players)
+    // console.log(players[0].hand[0]);
 }
 
 function hitMe() {
+    currentPlayer = players.length - 1;
     let hit = deck.hit();
+    console.log(players)
+    console.log(currentPlayer)
     players[currentPlayer].hand.push(hit);
     renderCard(hit, currentPlayer);
+    updatePoints();
+    updateCardCount();
     check();
 }
 
-// function check() {
-//     let handWeight = players[currentPlayer].weight;
-// }
+function stay() {
+    if(currentPlayer != 0) {
+        document.getElementById('player_' + currentPlayer).classList.remove('active');
+        currentPlayer--;
+        document.getElementById('player_' + currentPlayer).classList.add('active');
+    } else {
+        end();
+    }
+}
+
+function end() {
+    var winner = -1;
+    var score = 0;
+
+    for(var i = 0; i < players.length; i++)
+    {
+        if (players[i].Points > score && players[i].Points < 22)
+        {
+            winner = i;
+        }
+
+        score = players[i].weight;
+    }
+    console.log(players[winner])
+    document.getElementById('status').innerHTML = 'Winner: Player ' + players[winner].name;
+    document.getElementById("status").style.display = "inline-block";
+}
+
+function check() {
+    if (players[currentPlayer].weight > 21)
+    {
+        document.getElementById('status').innerHTML = 'Player: ' + players[currentPlayer].name + ' LOST';
+        document.getElementById('status').style.display = "inline-block";
+        end();
+    }
+}
+
+function getPoints(player) {
+    var points = 0;
+    for(let i = 0; i < players[player].hand.length; i++) {
+        points += players[player].hand[i][0].weight;
+    }
+    players[player].weight = points;
+    return points;
+}
+
+function updatePoints() {
+    for(let i = 0; i < players.length; i++) {
+        getPoints(i);
+        document.getElementById('points_' + i).innerHTML = players[i].weight
+    }
+}
 
 // // UI
 function renderCard(card, player) {
-    let hand = document.getElementById('hand_' + player);
-    hand.appendChild(getCardUI(card));
     console.log(card)
-    console.log(card.Suit)
-}
+    console.log(card[0].suit)
+    let hand = document.getElementById('hand_' + player);
+    hand.append(getCardUI(card));
+}   
 
 function getCardUI(card) {
+    console.log(card);
     let cardEl = document.createElement('div');
     let icon = '';
-    if (card.Suit == 'Hearts')
+    if (card[0].suit == 'Hearts')
             icon='&hearts;';
-            else if (card.Suit == 'Spades')
+            else if (card[0].suit == 'Spades')
             icon = '&spades;';
-            else if (card.Suit == 'Diamonds')
+            else if (card[0].suit == 'Diamonds')
             icon = '&diams;';
             else
             icon = '&clubs;';
+
+    cardEl.className = 'card';
+    cardEl.innerHTML = card[0].value + '<br/>' + icon;
+    return cardEl;
 }
 
-// function createPlayerUI() {
-// }
+function createPlayersUI() {
+    document.getElementById('players').innerHTML = '';
+    for(var i = 0; i < players.length; i++)
+    {
+        var div_player = document.createElement('div');
+        var div_playerid = document.createElement('div');
+        var div_hand = document.createElement('div');
+        var div_points = document.createElement('div');
 
-startGame();
+        div_points.className = 'points';
+        div_points.id = 'points_' + i;
+        div_player.id = 'player_' + i;
+        div_player.className = 'player';
+        div_hand.id = 'hand_' + i;
+
+        if(players[i].name == "0") {
+            div_playerid.innerHTML = "Dealer";
+        } else {
+            div_playerid.innerHTML = 'Player ' + players[i].name;
+        }
+        
+        div_player.appendChild(div_playerid);
+        div_player.appendChild(div_hand);
+        div_player.appendChild(div_points);
+        document.getElementById('players').appendChild(div_player);
+    }
+}
+
+function updateCardCount() {
+    document.getElementById('deckcount').innerHTML = deck.deck.length;
+}
  
-// document.getElementById("hit-btn").addEventListener("click", function() {
-    
-// });
-// document.getElementById("stay-btn")
+document.getElementById("hit").addEventListener("click", function() {
+    hitMe();
+});
 
-// document.getElementById("play-btn").addEventListener("click", function () {
-//     startGame();
+document.getElementById("stay").addEventListener("click", function() {
+    stay();
+});
+
+document.getElementById("btnStart").addEventListener("click", function () {
+    startGame();
+});
+
+// window.addEventListener('load', function(){
+//     addDeck();
+//     shuffleDeck();
+//     createPlayers(1);
 // });
+
