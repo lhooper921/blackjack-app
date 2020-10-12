@@ -38,17 +38,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <div>
-                                {{#limit user limit="5"}}
-                                <tr>
-                                    
-                                    
-                                    <td>{{this.userName}}</td>
-                                    <td>{{this.chips}}</td>
-                                    
-                                </tr>
-                                {{/limit}}
-                            </div>
+                            
+                                 {{#each user}}
+                <tr>
+                  <td>{{this.userName}}</td>
+                  <td>{{this.chips}}</td>
+
+                </tr>
+                {{/each}}
+                            
                         </tbody>
                     </table>
 
