@@ -2,6 +2,7 @@ const express = require('express');
 const session = require("express-session");
 const expressHandlebars = require('express-handlebars');
 const passport = require("./config/passport");
+const Handlebars = require('handlebars');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -20,19 +21,20 @@ app.use(express.json());
 // usage: {{#limit items limit="10"}} : items 0 thru 9
 // usage: {{#limit items offset="3"}} : items 3 thru context.length
 // defaults are offset=0, limit=5
-// Handlebars.registerHelper('limit', function(context, block) {
-//   var ret = "",
-//       offset = parseInt(block.hash.offset) || 0,
-//       limit = parseInt(block.hash.limit) || 5,
-//       i = (offset < context.length) ? offset : 0,
-//       j = ((limit + offset) < context.length) ? (limit + offset) : context.length;
 
-//   for(i,j; i<j; i++) {
-//     ret += block(context[i]);
-//   }
+Handlebars.registerHelper('limit', function(context, block) {
+  var ret = "",
+      offset = parseInt(block.hash.offset) || 0,
+      limit = parseInt(block.hash.limit) || 5,
+      i = (offset < context.length) ? offset : 0,
+      j = ((limit + offset) < context.length) ? (limit + offset) : context.length;
 
-//   return ret;
-// });
+  for(i,j; i<j; i++) {
+    ret += block(context[i]);
+  }
+
+  return ret;
+});
 
 
 app.engine('handlebars', expressHandlebars({ defaultLayout: 'main' }));
