@@ -56,22 +56,30 @@ button.edit {
 
 
 .nav {
-  margin-left: 900px;
   font-family: 'Damion', cursive;
-  font-size: 32px;
+  font-size: 24px;
+  background-color: white;
+  z-index: 100;
  
 }
-
-/* index page background image */
-.hero-image {
-  background-image: url("../images/cards.jpg"); /* The image used */
-  background-color: #cccccc; /* Used if the image is unavailable */
-  height: 700px; /* You must set a specified height */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
-  margin-top: -250px
+#index-background{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0;
+ 
 }
+/* index page background image */
+ /* .hero-image {
+  background-image: url("../images/cards.jpg"); 
+  background-color: #cccccc;
+  height: 700px; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+  
+  z-index:0; 
+} */
 
 /* Start and register/signin page background image */
 .hero-image2 {
@@ -97,35 +105,46 @@ button.edit {
 }
 
 /* Blackjack App logo */
-.hero-logo {
+#logo {
   text-align: left;
   color: white;
+  z-index:50;
+ 
+  transform: translate(2%, -15%);
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  position: absolute;
+  
+ 
 }
 
 /* Start game window on index page */
-.hero-text {
+#index-start {
   text-align: center;
   position: absolute;
   top: 50%;
-  right: 60%;
-  transform: translate(-50%, -50%);
+  right: 60%; 
   color: black;
   opacity: 85%;
   background-color:whitesmoke;
-  padding: 50px
+  padding: 50px;
+  z-index: 100;
 }
 
 /* Leaderboard preview window on index page */
-.hero-leaderboard {
+#index-leader {
   text-align: center;
   position: absolute;
-  top: 30%;
+  top: 50%;
   left: 60%;
-  transform: translate(-50%, -50%);
 opacity: 85%; 
   color: black;
   background-color:whitesmoke;
-  padding: 50px
+  padding: 50px;
+  z-index: 100;
 }
 
 /* Sign in or Register option on Start Page and Sign in window on Sign in Page */

@@ -1,64 +1,74 @@
-   
-   
-   {{> header}}
-   
-   
-    <!-- Cards Background image -->
-    <div class="container-fluid">
-        <div class="hero-image">
-            <div class="container">
-                <div class="row">
-                    <div class="hero-text col-2">
-                        <h1 id="startGameText">Start Game
-                        </h1>
-                        <a class="btn btn-primary btn-lg btn-block" href="game.html" role="button">Play Now</a>
+{{> header}}
 
-                        <a class="btn btn-primary btn-lg btn-block" href="rules.html" role="button">How to Play</a>
 
-                    </div>
+<!-- Cards Background image -->
+<div class="container-fluid" id="index-page">
+    <img src="../public/images/cards.jpg" class="img-fluid " id="index-background">
+       <!-- Logo -->
+       <div class="row">
+      <div class="col-8" id="logo">
+        <img src="/public/images/blackjack_logo.png"  alt="" loading="lazy">
+            </div>
+            </div>
+        <div class="container">          
+         
+            <div class="row"> 
+      
+                <div class="col-2" id="index-start">
+                    <h1 id="startGameText">Start Game
+                    </h1>
+                    <a class="btn btn-primary btn-lg btn-block" href="game.html" role="button">Play Now</a>
+
+                    <a class="btn btn-primary btn-lg btn-block" href="rules.html" role="button">How to Play</a>
+
                 </div>
             </div>
-            <div class="container">
-                <div class="row">
-                    <div class="hero-leaderboard col-4">
-                        <h1 id="leaderboard">Top Players</h1>
-                        <div class="container ">
-                            <div class="row justify-content-center">
-<div class="col-6 ">
-                            
-                <!-- =======================================================Need Handlebars to generate content============================================================= -->
-      <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                
-                                <td>Username</td>
-                                <td>Total Chips</td>
-                                
-                        
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                                 {{#each user}}
-                <tr>
-                  <td>{{this.userName}}</td>
-                  <td>{{this.chips}}</td>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-4" id="index-leader">
+                    <h1 id="leaderboard">Top Players</h1>
+                    <div class="container ">
+                        <div class="row justify-content-center">
+                            <div class="col-6 ">
 
-                </tr>
-                {{/each}}
-                            
-                        </tbody>
-                    </table>
+                                <!-- =======================================================Need Handlebars to generate content============================================================= -->
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+
+                                            <td>Username</td>
+                                            <td>Total Chips</td>
 
 
-                 <!-- ======================================================================================================================================================= -->
-</div></div>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <div>
+                                            {{#each user}}
+                                            <tr>
+
+
+                                                <td>{{this.dataValues.userName}}</td>
+                                                <td>{{this.dataValues.chips}}</td>
+
+                                            </tr>
+                                            {{/each}}
+                                        </div>
+                                    </tbody>
+                                </table>
+
+
+                                <!-- ======================================================================================================================================================= -->
+                            </div>
                         </div>
-                        <a class="btn btn-primary btn-lg btn-block" href="leaderboard.html" role="button">View full leaderboard</a>
                     </div>
+                    <a class="btn btn-primary btn-lg btn-block" href="leaderboard.html" role="button">View full
+                        leaderboard</a>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    {{> footer}}
+{{> footer}}
