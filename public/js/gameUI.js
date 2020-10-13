@@ -10,8 +10,11 @@ $(document).ready(async function () {
     }
 
     const DECK_ID = await getDeckID();
+    var user = await getUserData();
+
     var dealer = new Player("DEALER", 0, [],);
-    var player = new Player("PLAYER", 5000, [],);
+    var player = new Player(user.name, user.chips , [],);
+
     var bet = 0;
     var handDone = false;
     var dealerHandValue = 0;
@@ -34,20 +37,42 @@ $(document).ready(async function () {
 
             case 'stay-btn':
                 //checks for dealer bust
-                $(".dealer-hand").append((createCardIMG(dealer.hand[1].image)));
-                status = await dealerHit();
+                if(!handDone) {
+                    $(".dealer-hand").append((createCardIMG(dealer.hand[1].image)));
+                    status = await dealerHit();
+                }
+
                 resolveHand(status);
                 break;
 
             case 'hit-btn':
                 //Checks for player bust
-                status = await hit();
+                if(!handDone) status = await hit();
+
                 resolveHand(status);
+                break;
+
+            case 'play-again':
+                dealer.hand = [];
+                player.hand = [];
+                dealerHandValue = 0;
+                playerHandValue = 0;
+                bet = 0;
+                handDone = false;
+
+                updateUser({chips: player.chips, id: user.id});
+
+                $(".card-display").remove();
+                $(".report-display").remove();
+                $("#show-chips").text(`You currently have ${player.chips} chips`);
+
+                welcomePlate.show();
                 break;
 
             default:
                 break;
         }
+        
     });
 
     async function resolveHand(status){
@@ -58,16 +83,23 @@ $(document).ready(async function () {
             case 'PLAYER SAFE':
                 break;
             case 'PLAYER BUST':
+                $(".dealer-hand").append((createCardIMG(dealer.hand[1].image)));
+                playerHandValue = Math.min(...(getHandValues(player.hand)));
+                dealerHandValue = Math.max(...(getHandValues(dealer.hand)));
                 renderReport("lose");
                 break;
             case 'DEALER BUST':
+                playerHandValue = Math.max(...(getHandValues(player.hand)));
+                dealerHandValue = Math.min(...(getHandValues(dealer.hand)));
                 renderReport("win!!");
                 break;
             case 'DEALER STAY':
+                playerHandValue = Math.max(...(getHandValues(player.hand).filter((val) => {return val <= 21})));
+                dealerHandValue = Math.max(...(getHandValues(dealer.hand).filter((val) => {return val >= 17 && val <= 21;})));
                 if(dealerHandValue == playerHandValue){
                     renderReport("push...");
                 } else {
-                    dealerHandValue > playerHandValue ? renderReport("loose") : renderReport("win!!");
+                    dealerHandValue > playerHandValue ? renderReport("lose") : renderReport("win!!");
                 }
                 break;
         }
@@ -77,22 +109,35 @@ $(document).ready(async function () {
 
     function renderReport(result) {
 
-        if(result == "win!!") player.chips += bet;
-        if(result == "loose") player.chips -= bet;
+        $(".player-action").hide();
 
-        var reportCol = $(".report-display");
+        if(!handDone){
 
-        var handReport = $("<div></div>").addClass("bg-light rounded m-1 p-3");
-        var winStatus = $("<h2></h2>").addClass("m-3").text(`You ${result}!!`);
-        var chipCount = $("<h3></h3>").addClass("m-3").text(`You now have ${player.chips} chips`);
-        var playAgain = $("<h3></h3>").addClass("m-3").text("Would you like to play again?");
-        var playAgainbtn = $("<button></button>").addClass("btn btn-primary btn-block p-3").text("Play Again");
-
-        handReport.append(winStatus);
-        handReport.append(chipCount);
-        handReport.append(playAgain);
-        handReport.append(playAgainbtn);
-        reportCol.append(handReport);
+            if(result == "win!!") player.chips += parseInt(bet);
+            if(result == "lose") player.chips -= parseInt(bet);
+    
+            var reportCol = $(".report-display");
+    
+            var handReport = $("<div></div>").addClass("bg-light rounded m-1 p-3");
+            var winStatus = $("<h2></h2>").addClass("m-3 text-center").text(`You ${result}`);
+            var betView = $("<h2></h2>").addClass("m-3").text(`Bet amount: ${bet}`);
+            var playerValue = $("<h2></h2>").addClass("m-3").text(`Your hand: ${playerHandValue}`);
+            var dealerValue = $("<h2></h2>").addClass("m-3").text(`Dealer's hand: ${dealerHandValue}`);
+            var chipCount = $("<h3></h3>").addClass("m-3").text(`You now have ${player.chips} chips`);
+            var playAgain = $("<h3></h3>").addClass("m-3").text("Would you like to play again?");
+            var playAgainbtn = $("<button></button>").addClass("btn btn-primary btn-block p-3").text("Play Again").attr("id", "play-again");
+    
+            handReport.append(winStatus);
+            handReport.append(betView);
+            handReport.append(playerValue);
+            handReport.append(dealerValue);
+            handReport.append(chipCount);
+            handReport.append(playAgain);
+            handReport.append(playAgainbtn);
+            reportCol.append(handReport);
+    
+            handDone = true;
+        }
     }
 
     async function dealerHit(){
@@ -109,9 +154,8 @@ $(document).ready(async function () {
 
         console.log(...stayAmounts);
 
-        //Return the maximum value out of all amounts that meet stay conditions
+        //Return the maximum value out of the amounts that meet stay conditions
         if(stayAmounts.length > 0){
-            dealerHandValue = Math.max(...stayAmounts);
             return "DEALER STAY";
         }
 
@@ -179,12 +223,10 @@ $(document).ready(async function () {
         var mainCol = $("<div></div>").addClass("col-md-8 card-display");
         var reportCol = $("<div></div>").addClass("col-md-4 report-display p-3");
 
-        var handReport = $("<div></div>").addClass("bg-light rounded m-1 p-3");
-        var betView = $("<h3></h3>").addClass("bg-light rounded text-center mb-3").text(`Bet amount: ${bet}`);
+        var handReport = $("<div></div>").addClass("bg-light rounded m-1 p-3 player-action");
         var stayBtn = $("<div></div>").addClass("btn btn-primary btn-large btn-block  p-3 stay-btn").text("Stay").attr('id', "stay-btn");
         var hitBtn = $("<div></div>").addClass("btn btn-warning btrn-large btn-block  p-3 hit-btn").text("Hit").attr('id', "hit-btn");
 
-        handReport.append(betView);
         handReport.append(stayBtn);
         handReport.append(hitBtn);
         reportCol.append(handReport);
@@ -229,5 +271,19 @@ $(document).ready(async function () {
             method: "GET"
         });
         return res.cards;
+    }
+
+    async function getUserData() {
+        
+        let res = await $.get("api/user_data");
+        return res;
+    }
+
+    async function updateUser(data) {
+        $.ajax({
+            method: "PUT",
+            url: "api/user_data",
+            data: data
+        });
     }
 });

@@ -4,9 +4,9 @@
 
     <div id="game-plate" class="row justify-content-center">
 
-        <div id="welcome-plate" class="col-4 text-center mt-5 p-3 bg-light rounded">
+        <div value="{{this.user.id}}" id="welcome-plate" class="col-4 text-center mt-5 p-3 bg-light rounded">
             <h1> Welcome {{this.user.userName}}! </h1>
-            <h4> You currently have {{this.user.chips}} chips</h4>
+            <h4 id="show-chips"> You currently have {{this.user.chips}} chips</h4>
 
 
             <div class="row justify-content-center">
