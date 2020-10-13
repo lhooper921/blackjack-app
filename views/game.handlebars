@@ -1,0 +1,31 @@
+{{> header}}
+
+<div class="container-fluid hero-image">
+
+    <div id="game-plate" class="row justify-content-center">
+
+        <div id="welcome-plate" class="col-4 text-center mt-5 p-3 bg-light rounded">
+            <h1> Welcome {{this.user.userName}}! </h1>
+            <h4> You currently have {{this.user.chips}} chips</h4>
+
+
+            <div class="row justify-content-center">
+
+                <div class="col-4 col-5 m-3">
+                    <label for="bet">
+                        <h6> Place your bet</h6>
+                    </label>
+                    <input id="bet-amount" type="number" class="form-control" placeholder="">
+                    <button id="bet-btn" class="btn btn-primary m-1"> submit </button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{{> footer}}
+
+<script type="application/javascript" src="/public/js/gameUI.js"> </script>

@@ -27,11 +27,20 @@ module.exports = function (app) {
           limit: 5
         })
         .then((user) => {
-          console.log(user);
           res.render("index", {user: user});
         })
         .catch((err) => console.log(err));
         //res.sendFile(path.join(__dirname, "../public/index.html"));
+      });
+
+      app.get("/game", isAuthenticated, function(req, res) {
+
+        var data = {
+          user: req.user,
+          script:  "gameUI.js"
+        };
+
+        res.render("game", data);
       });
 
       app.get("/rules", isAuthenticated, function(req, res) {
