@@ -19,10 +19,11 @@ $(document).ready(async function () {
     var dealerHandValue = 0;
     var playerHandValue = 0;
 
-    var gamePlate = $("#game-plate");
-    var welcomePlate = $("#welcome-plate");
+    var cardDisplay = $(".card-display");
+    var reportDisplay = $(".report-display");
+    //var welcomePlate = $("#welcome-plate");
 
-    //renderBettingWindow();
+    renderBettingWindow();
 
 
     document.addEventListener('click', async function (event) {
@@ -34,6 +35,7 @@ $(document).ready(async function () {
             case 'bet-btn':
                 let temp = parseInt($("#bet-amount").val());
                 bet = isNaN(temp) ? 0 : temp;
+                $(".betting-window").remove();
                 status = await startHand();
                 break;
 
@@ -65,17 +67,14 @@ $(document).ready(async function () {
                 playerHandValue = 0;
                 bet = 0;
 
-                $(".card-display").remove();
-                $(".report-display").remove();
-                $("#show-chips").text(`You currently have ${player.chips} chips`);
-
-                welcomePlate.show();
+                cardDisplay.empty();
+                reportDisplay.empty();
+                renderBettingWindow();
                 break;
 
             default:
                 break;
         }
-
     });
 
     async function resolveHand(status) {
@@ -121,7 +120,7 @@ $(document).ready(async function () {
 
     async function startHand() {
 
-        welcomePlate.hide();
+        //welcomePlate.hide();
 
         dealer.hand = await draw(2);
         player.hand = await draw(2);
@@ -205,10 +204,10 @@ $(document).ready(async function () {
 
         var bettingWindow = $("<div></div>").addClass("bg-light rounded m-1 p-3 betting-window");
         var welcomeUser = $("<h2></h2>").addClass("m-1 text-center").text(`Welcome ${player.name}!`);
-        var chipCount = $("<h4></h4>").addClass("m-1").text(`You have ${player.chips} chips`);
-        var placeBet = $("<h3></h3>").addClass("m-1 text-center").text("Place your bet");
+        var chipCount = $("<h4></h4>").addClass("m-1 text-center").text(`You have ${player.chips} chips`);
+        var placeBet = $("<h4></h4>").addClass("m-1 text-center").text("Place your bet");
         var betInput = $("<input></input>").addClass("form-control").attr('id', 'bet-amount');
-        var betBtn = $("<button></button>").addClass("btn btn-primary btn-block").attr('id', 'bet-btn');
+        var betBtn = $("<button></button>").addClass("btn btn-primary mt-2 btn-block").attr('id', 'bet-btn').text("Bet");
 
         
         bettingWindow.append(welcomeUser);
@@ -216,12 +215,12 @@ $(document).ready(async function () {
         bettingWindow.append(placeBet);
         bettingWindow.append(betInput);
         bettingWindow.append(betBtn);
-        gamePlate.append(bettingWindow);
+        reportDisplay.append(bettingWindow);
     }
 
     async function renderHands() {
 
-        welcomePlate.hide();
+        //welcomePlate.hide();
 
         //Contains dealer and player cards
         var mainCol = $("<div></div>").addClass("col-md-8 card-display");
@@ -235,24 +234,21 @@ $(document).ready(async function () {
         handReport.append(stayBtn);
         handReport.append(hitBtn);
         handReport.append(doubleBtn);
-        reportCol.append(handReport);
+        reportDisplay.append(handReport);
 
         var dealerRow = $("<div></div>").addClass("row dealer-hand p-1");
         var dealerHeader = $("<h3></h3>").text("Dealer").addClass("text-white");
 
         dealerRow.append(createCardIMG(dealer.hand[0].image));
-        mainCol.append(dealerHeader);
-        mainCol.append(dealerRow);
+        cardDisplay.append(dealerHeader);
+        cardDisplay.append(dealerRow);
 
         var playerRow = $("<div></div>").addClass("row player-hand p-1");
         var playerHeader = $("<h3></h3>").text("Player").addClass("text-white");
         playerRow.append(createCardIMG(player.hand[0].image));
         playerRow.append(createCardIMG(player.hand[1].image));
-        mainCol.append(playerHeader);
-        mainCol.append(playerRow);
-
-        gamePlate.append(mainCol);
-        gamePlate.append(reportCol);
+        cardDisplay.append(playerHeader);
+        cardDisplay.append(playerRow);
 
     }
 
