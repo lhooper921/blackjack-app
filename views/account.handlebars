@@ -5,76 +5,65 @@
 
 
 
-    <!-- Cards Background image -->
-<div class="container-fluid" id="index-page">
-    <img src="../public/images/cards.jpg" class="img-fluid " id="index-background">
-       <!-- Logo -->
-       <div class="row">
-      <div class="xs-col-2 md-col-8" id="logo">
-        <img src="/public/images/blackjack_logo.png"  alt="" loading="lazy">
+<!-- Cards Background image -->
+<div class="container-fluid">
+    <div class="hero-image">
+
+        <div class="row">
+            <div class="hero-account col-5 text-center mt-5">
+                <h1>Your Account Info</h1>
+                <div class="container ">
+
+                    <h2>First Name: {{this.firstName}}</h2>
+                    <h2>Last Name: {{this.lastName}}</h2>
+                    <h2>User Name: {{this.userName}}</h2>
+                    <h2>Email: {{this.email}}</h2>
+
+                </div>
             </div>
-            </div>
+        </div>
 
-            <div class="row">
-                <div class="hero-account col-5 text-center mt-5">
-                    <h1>Your Account Info</h1>
-                    <div class="container ">
 
-                        <h2>First Name: {{this.firstName}}</h2>
-                        <h2>Last Name: {{this.lastName}}</h2>
-                        <h2>User Name: {{this.userName}}</h2>
-                        <h2>Email: {{this.email}}</h2>
 
+        <div class="hero-account-update col-4 text-center mt-5">
+            <div class="container">
+
+                <form method="PUT" action="/api/updateaccount">
+                    <h1>Update Info</h1>
+                    <div class="row">
+                        <div class="col">
+
+                            <input name="firstName" type="text" class="form-control" placeholder="First name">
+                        </div>
+                        <div class="col">
+                            <input name="lastName" type="text" class="form-control" placeholder="Last name">
+                        </div>
                     </div>
-                </div>
-            </div>
-
-
-
-            <div class="hero-account-update col-4 text-center mt-5">
-                <div class="container">
-
-                    <form>
-                        <h1>Update Info</h1>
-                        <div class="row">
-                            <div class="col">
-
-                                <input type="text" class="form-control" placeholder="First name">
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Last name">
-                            </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="inputEmail4">Email</label>
+                            <input name="email" type="email" class="form-control" id="inputEmail4"
+                                placeholder="name@example.com">
                         </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-12">
-                                <label for="inputEmail4">Email</label>
-                                <input type="email" class="form-control" id="inputEmail4"
-                                    placeholder="name@example.com">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputPassword4">Username</label>
-                                <input type="password" class="form-control" id="inputPassword4"
-                                    placeholder="Will appear on leaderboard">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputPassword4">Password</label>
-                                <input type="password" class="form-control" id="inputPassword4"
-                                    placeholder="Must be 8-12 characters">
-                            </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Password</label>
+                            <input name="password" type="password" class="form-control" id="inputPassword4"
+                                placeholder="Must be 8-12 characters">
                         </div>
-                        <button type="submit" class="btn btn-primary">Create Account</button>
-                    </form>
-                    <p>Already have an account? <a href="signIn.html">Sign In</a></p>
-                </div>
-
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create Account</button>
+                </form>
+                <p>Already have an account? <a href="signIn.html">Sign In</a></p>
             </div>
 
         </div>
 
     </div>
 
+</div>
 
 
-    </div>
-    </div>
-    {{> footer}}
+
+</div>
+</div>
+{{> footer}}
