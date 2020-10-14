@@ -243,11 +243,11 @@ function updateCardCount() {
     document.getElementById('deckcount').innerHTML = deck.deck.length;
 }
  
-document.getElementById("hit").addEventListener("click", function() {
+document.getElementById("btn-hit").addEventListener("click", function() {
     hitMe();
 });
 
-document.getElementById("stay").addEventListener("click", function() {
+document.getElementById("btn-stay").addEventListener("click", function() {
     stay();
 });
 
