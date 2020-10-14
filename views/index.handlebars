@@ -2,14 +2,22 @@
 
 
 <!-- Cards Background image -->
-<div class="container-fluid">
-    <div class="hero-image">
-        <div class="container">
-            <div class="row">
-                <div class="hero-text col-2">
+<div class="container-fluid" id="index-page">
+    <img src="../public/images/cards.jpg" class="img-fluid " id="index-background">
+       <!-- Logo -->
+       <div class="row">
+      <div class="xs-col-2 md-col-8" id="logo">
+        <img src="/public/images/blackjack_logo.png"  alt="" loading="lazy">
+            </div>
+            </div>
+        <div class="container">          
+         
+            <div class="row"> 
+      
+                <div class="cs-col-12 md-col-2" id="index-start">
                     <h1 id="startGameText">Start Game
                     </h1>
-                    <a class="btn btn-primary btn-lg btn-block" href="game.html" role="button">Play Now</a>
+                    <a class="btn btn-primary btn-lg btn-block" href="/game" role="button">Play Now</a>
 
                     <a class="btn btn-primary btn-lg btn-block" href="rules.html" role="button">How to Play</a>
 
@@ -18,14 +26,14 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="hero-leaderboard col-4">
+                <div class="xs-col-12 md-col-4" id="index-leader">
                     <h1 id="leaderboard">Top Players</h1>
                     <div class="container ">
                         <div class="row justify-content-center">
-                            <div class="col-6 ">
+                            <div class="col-12 ">
 
-                                <!-- =======================================================Need Handlebars to generate content============================================================= -->
-                                <table class="table table-striped">
+                             
+                                <table class="table table-striped justify-content-center">
                                     <thead>
                                         <tr>
 

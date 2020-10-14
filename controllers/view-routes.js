@@ -43,6 +43,11 @@ module.exports = function (app) {
         res.render("account", req.user);
        // res.sendFile(path.join(__dirname, "../public/account.html"))
       });
+
+      app.get("/game", isAuthenticated, function(req, res) {
+        res.render("game", {});
+       // res.sendFile(path.join(__dirname, "../public/"))
+      });
     
       app.get("/leaderboard", isAuthenticated, function(req, res) {
         db.User.findAll({
