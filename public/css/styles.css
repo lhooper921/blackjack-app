@@ -234,10 +234,8 @@ opacity: 85%;
   padding: 20px;
   transform: translate(40%, 775%); 
 }
-#btn-hit{
-  position:absolute;
-  top: 50%;
-  left: 65%;
+#hit-btn{
+  
   padding: 20px 40px;
   opacity: 85%; 
   }

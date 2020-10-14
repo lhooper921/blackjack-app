@@ -1,77 +1,22 @@
-<<<<<<< HEAD
-    {{>header}}
-    
-    <!-- Table Background image -->
-  <div class="container-fluid" id="game-page">
-    <img src="../public/images/table.jpg" class="img-fluid" id="game-background">
-      <div class="row">
+{{> header}}
+
+<div class="container-fluid">
+<img src="../public/images/table.jpg" class="img-fluid " id="game-background">
+       <!-- Logo -->
+       <div class="row">
       <div class="xs-col-2 md-col-8" id="logo">
         <img src="/public/images/blackjack_logo.png"  alt="" loading="lazy">
             </div>
             </div>
-            <div class="cards-image">
-                <!-- ==============THESE IMAGES NEED TO CHANGE DYNAMICALLY BASED ON GAME================================================ -->
-                <img src="./images/card back black.png" id="dealer-card1" width="150" height="229.23299565846602px"
-                    alt="...">
-                <img src="./images/PNG/10C.png" id="dealer-card2" width="150" height="229.23299565846602px" alt="...">
-                <img src="./images/card back black.png" id="player-card1" width="150" height="229.23299565846602px"
-                    alt="...">
-                <img src="./images/PNG/4D.png" id="player-card2" width="150" height="229.23299565846602px" alt="...">
-            </div>
+    <div class="row justify-content-center">
 
-            <div class="row">
-                <div class="col-4">
-                    <div class="container" id="bank">
-                        <!-- =================================================HANDLEBARS NEEDED TO GENERATE BANK & BET CONTENT============================================ -->
-                        <h1>Bank</h1>
-                        <h3>Current Total: {$$$$$$}</h3>
-                        <h3>Current Bet: {$$$$$$$}</h3>
-                         <a class="btn btn-primary btn-lg btn-block"  role="button" id="btnStart"> Start Game</a>
-                        <a class="btn btn-primary btn-lg btn-block"  role="button">Increase Bet</a>
-                        {{!-- <a class="btn btn-primary btn-lg btn-block"  role="button">Insurance {Disabled until possible}</a>
-                        <a class="btn btn-primary btn-lg btn-block"  role="button">Double Down {Disabled until possible}</a>
-                        <a class="btn btn-primary btn-lg btn-block"  role="button">Split {Disabled until possible}</a> --}}
-                    </div>
-                </div>
-
-                <div class="col-3">
-                    <div class="container" id="dealer-hand-total">
-                        <!-- =================================================HANDLEBARS NEEDED TO GENERATE HAND CONTENT============================================ -->
-                        <h4>Dealer: {hand total}</h4>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="container" id="player-hand-total">
-                        <!-- =================================================HANDLEBARS NEEDED TO GENERATE HAND CONTENT============================================ -->
-                        <h4>Player: {hand total}</h4>
-                    </div>
-                </div>
-
-            </div>
-            <a class="btn btn-primary btn-lg" id="btn-hit" role="button" >Hit</a>
-            <a class="btn btn-primary btn-lg" id="btn-stand" role="button">Stand</a>
-            <div class="col-4">
-            <div class="container" id="winOrBust">
-                <h3>Player {{status}} </h3>
-=======
-{{> header}}
-
-<div class="container-fluid">
-
-        <div id="game-plate" class="row justify-content-center">
+        <div class="col-10" id="game-plate"></div>
             <div class="col-md-10 card-display"></div>
             <div class="col-md-2 report-display p-3"></div>
         </div>
->>>>>>> f0d2a952d7996d99eaf2d3ef7e444c63d0e11005
-
 </div>
-<<<<<<< HEAD
 </div>
-    
- <script src="./game.js" async defer></script>
-=======
 
 {{> footer}}
 
 <script type="application/javascript" src="/public/js/gameUI.js"> </script>
->>>>>>> f0d2a952d7996d99eaf2d3ef7e444c63d0e11005
