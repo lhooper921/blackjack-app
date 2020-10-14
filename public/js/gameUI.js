@@ -31,6 +31,8 @@ $(document).ready(async function () {
 
         let status;
 
+        console.log(event.target.href);
+
         switch (event.target.id) {
             case 'bet-btn':
                 let temp = parseInt($("#bet-amount").val());
@@ -73,6 +75,9 @@ $(document).ready(async function () {
                 break;
 
             default:
+                if (event.target.href != undefined) {
+                    window.location.replace(event.target.href);
+                }
                 break;
         }
     });

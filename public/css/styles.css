@@ -93,7 +93,8 @@ button.edit {
 }
 
 /* Game Page background image */
-#game-background {
+.hero-image3 { 
+  background-image: url("../images/table.jpg");
   background-color: #cccccc; /* Used if the image is unavailable */
   height: 1200px; /* You must set a specified height */
   background-position: center; /* Center the image */
@@ -172,7 +173,15 @@ opacity: 85%;
   padding: 50px
 }
 
-
+#leader-table {
+  text-align: center;
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  color: black;
+  background-color:whitesmoke;
+  opacity: 85%; 
+}
 
 
 .footer {
@@ -187,84 +196,18 @@ opacity: 85%;
 }
 
 
-/* ----------------------------------Game Page ------------------------------------------------------------------------ */
-#dealer-card1 {
-  position: absolute;
-  top: 15%;
-  left:45%;
-}
-#dealer-card2 {
-  position: absolute;
-  top: 20%;
-  left:48%;
-}
-#player-card1 {
-  position: absolute;
-  top: 46%;
-  left:45%;
-}
-#player-card2 {
-  position: absolute;
-  top: 50%;
-  left:48%;
-}
-#bank{
-  text-align: center;
-  opacity: 100%; 
-  margin-left: 20px;
-  color: rgba(0, 0, 0, 0.603);
-  background-color:white;
-  padding: 50px;
-  border: 7px ridge gold;
-}
-#dealer-hand-total{
-  text-align: center;  
-  opacity: 85%; 
-  color: black;
-  background-color:whitesmoke;
-  padding: 20px;
-  transform: translate(150%, 50%); 
-}
 
-#player-hand-total{
-  text-align: center;  
-  opacity: 85%; 
-  color: black;
-  background-color:whitesmoke;
-  padding: 20px;
-  transform: translate(40%, 775%); 
-}
-#hit-btn{
-  
-  padding: 20px 40px;
-  opacity: 85%; 
-  }
-  #btn-stand{
-    position:absolute;
-    top: 30%;
-    left: 64%;
-    padding: 20px 40px;
-    opacity: 85%; 
-    }
-    #winOrBust{
-      position:absolute;
-      top: 30%;
-      left: 65%;
-      opacity: 85%; 
-      color: black;
-      background-color:whitesmoke;
-      font-size: 30px;
-      }
 
-      #leader-table{
-        position:absolute;
-        top: 20%;
-        left: 20%;
-        opacity: 85%; 
-        color: black;
-        background-color:whitesmoke;
-        font-size: 30px;
-        }
+
+
+
+
+
+
+ 
+
+
+    
 
         /* Account Page */
         .hero-account {
