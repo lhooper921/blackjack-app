@@ -1,98 +1,115 @@
-
-
 {{> header}}
 
 
 
 
-    <!-- Cards Background image -->
+<!-- Cards Background image -->
 <div class="container-fluid" id="index-page">
     <img src="../public/images/cards.jpg" class="img-fluid " id="index-background">
-       <!-- Logo -->
-       <div class="row">
-      <div class="xs-col-2 md-col-8" id="logo">
-        <img src="/public/images/blackjack_logo.png"  alt="" loading="lazy">
+    <!-- Logo -->
+    <div class="row justify-content-center">
+        <div class="sm-col-12 col-2 " id="logo">
+            <img src="/public/images/blackjack_logo.png" alt="" loading="lazy">
+        </div>
+
+
+<div class="container">
+        <div class="hero-account col-8 mt-5 ml-5 text-center">
+
+            <table class="table table-hover" id="account-table">
+                <thead>
+                    <tr>
+                        <h1>Your Account</h1>
+                    </tr>
+                </thead>
+
+                <tr>
+                    <td>
+                        <h4> First Name </h4>
+                    </td>
+                    <td>
+                        <h5>{{this.firstName}}</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4> Last Name </h4>
+                    </td>
+                    <td>
+                        <h5>{{this.lastName}}</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>User Name</h4>
+                    </td>
+                    <td>
+                        <h5>{{this.userName}}</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>Email</h4>
+                    </td>
+                    <td>
+                        <h5>{{this.email}}</h5>
+                    </td>
+                </tr>
+
+
+
+                </tbody>
+            </table>
             </div>
-            </div>
-
-            <div class="row">
-                <div class="hero-account col-3 text-center mt-5">
- 
-                       <table class="table table-hover" id="account-table">
-                        <thead>
-                          <tr><h1>Your Account</h1></tr>
-                          </thead>
-                      
-                          <tr>
-                            <td><h4>  First Name  </h4></td>
-                            <td><h5>{{this.firstName}}</h5></td>
-                          </tr>
-                             <tr>
-                            <td><h4>  Last Name  </h4></td>
-                            <td><h5>{{this.lastName}}</h5></td>
-                          </tr>
-                          <tr>
-                            <td><h4>User Name</h4></td>
-                            <td><h5>{{this.userName}}</h5></td>
-                          </tr>
-                           <tr>
-                            <td><h4>Email</h4></td>
-                            <td><h5>{{this.email}}</h5></td>
-                          </tr>
-
-        
-                        
-                        </tbody>
-                      </table>
-                </div>
-            </div>
+        </div>
+    </div>
 
 
 
-            <div class="hero-account-update col-4 text-center mt-5">
-                <div class="container">
+    <div class="row justify-content-center">
+        <div class="hero-account-update col-8 text-center mt-5">
+            <div class="container">
 
-                    <form>
-                        <h1>Update Info</h1>
-                        <div class="row">
-                            <div class="col">
+                <form>
+                    <h1>Update Info</h1>
+                    <div class="row">
+                        <div class="col">
 
-                                <input type="text" class="form-control" placeholder="First name">
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Last name">
-                            </div>
+                            <input type="text" class="form-control" placeholder="First name">
                         </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-12">
-                                <label for="inputEmail4">Email</label>
-                                <input type="email" class="form-control" id="inputEmail4"
-                                    placeholder="name@example.com">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputPassword4">Username</label>
-                                <input type="password" class="form-control" id="inputPassword4"
-                                    placeholder="Will appear on leaderboard">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputPassword4">Password</label>
-                                <input type="password" class="form-control" id="inputPassword4"
-                                    placeholder="Must be 8-12 characters">
-                            </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Last name">
                         </div>
-                        <button type="submit" class="btn btn-primary">Update Account</button>
-                    </form>
-                    
-                </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="inputEmail4">Email</label>
+                            <input type="email" class="form-control" id="inputEmail4" placeholder="name@example.com">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Username</label>
+                            <input type="password" class="form-control" id="inputPassword4"
+                                placeholder="Will appear on leaderboard">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Password</label>
+                            <input type="password" class="form-control" id="inputPassword4"
+                                placeholder="Must be 8-12 characters">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Account</button>
+                </form>
 
             </div>
-
         </div>
 
     </div>
 
+</div>
 
 
-    </div>
-    </div>
-    {{> footer}}
+
+
+
+
+{{> footer}}
