@@ -4,71 +4,86 @@
 <!-- Cards Background image -->
 <div class="container-fluid" id="index-page">
     <img src="../public/images/cards.jpg" class="img-fluid " id="index-background">
-       <!-- Logo -->
-       <div class="row">
-      <div class="xs-col-2 md-col-8" id="logo">
-        <img src="/public/images/blackjack_logo.png"  alt="" loading="lazy">
-            </div>
-            </div>
-        <div class="container">          
-         
-            <div class="row"> 
-      
-                <div class="cs-col-12 md-col-2" id="index-start">
-                    <h1 id="startGameText">Start Game
-                    </h1>
-                    <a class="btn btn-primary btn-lg btn-block" href="/game" role="button">Play Now</a>
-
-                    <a class="btn btn-primary btn-lg btn-block" href="rules.html" role="button">How to Play</a>
-
-                </div>
-            </div>
+    <!-- Logo -->
+    <div class="row justify-content-center">
+        <div class="xs-col-2 md-col-8" id="logo">
+            <img src="/public/images/blackjack_logo.png" alt="" loading="lazy">
         </div>
         <div class="container">
-            <div class="row">
-                <div class="xs-col-12 md-col-4" id="index-leader">
-                    <h1 id="leaderboard">Top Players</h1>
-                    <div class="container ">
-                        <div class="row justify-content-center">
-                            <div class="col-12 ">
-
-                             
-                                <table class="table table-striped justify-content-center">
-                                    <thead>
-                                        <tr>
-
-                                            <td>Username</td>
-                                            <td>Total Chips</td>
-
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <div>
-                                            {{#each user}}
-                                            <tr>
-
-
-                                                <td>{{this.dataValues.userName}}</td>
-                                                <td>{{this.dataValues.chips}}</td>
-
-                                            </tr>
-                                            {{/each}}
-                                        </div>
-                                    </tbody>
-                                </table>
-
-
-                                <!-- ======================================================================================================================================================= -->
-                            </div>
-                        </div>
-                    </div>
-                    <a class="btn btn-primary btn-lg btn-block" href="leaderboard.html" role="button">View full
-                        leaderboard</a>
-                </div>
+            <div class="sm-col-10 col-5 m-5" id="index-start">
+                 <h1 id="startGameText">New Game
+                </h1>
+                <img src="../public/images/aces.png" height="188px" width="350px" id="index-start-aces"><br>
+              
+                <a class="btn btn-primary btn-lg " href="/game" role="button">Play Now</a>
             </div>
         </div>
     </div>
+    
+        <div class="row justify-content-center">
+            {{!-- <div class="container"> --}}
+            <div class="col-6 mb-5" id="index-leader">
+                <h1 id="leaderboard">Top Players</h1>
+                <div class="container ">
+                    <div class="row justify-content-center">
+                        <div class="col-12 ">
+
+
+                            <table class="table table-striped justify-content-center">
+                                <thead>
+                                    <tr>
+
+                                        <td>Username</td>
+                                        <td>Total Chips</td>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <div>
+                                        {{#each user}}
+                                        <tr>
+
+
+                                            <td>{{this.dataValues.userName}}</td>
+                                            <td>{{this.dataValues.chips}}</td>
+
+                                        </tr>
+                                        {{/each}}
+                                    </div>
+                                </tbody>
+                            </table>
+
+
+                            <!-- ======================================================================================================================================================= -->
+                        </div>
+                    </div>
+                </div>
+                <a class="btn btn-primary btn-lg btn-block" href="/leaderboard" role="button">View full
+                    leaderboard</a>
+            {{!-- </div> --}}
+        </div>
+        {{!-- <div class="container"> --}}
+
+            <div class="row justify-content-center">
+
+                <div class="col-6" id="index-howto">
+                    <h1> How to Play</h1>
+                    <p>Begin a new game by clicking "Play Now" on the index page. You will be directed to the game page
+                        where you will need to place your bet. Once your bet is placed, click "Bet". You will then be
+                        shown your hand and the dealer's hand. Decide if you like to "Stay", "Hit", or "Double Down".
+                        Click the appropriate buttons until the game ends with either "You win" or "You lose" followed
+                        by your current stats. If you would like to play again, click "Play Again". For more information
+                        on blackjack, check out our rules page. </p>
+
+                    <a class="btn btn-primary btn-lg btn-block" href="/rules" role="button">Rules</a>
+
+                </div>
+            </div>
+        {{!-- </div> --}}
+    </div>
+</div>
+
 </div>
 
 {{> footer}}

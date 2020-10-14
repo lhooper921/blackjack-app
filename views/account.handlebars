@@ -16,16 +16,34 @@
             </div>
 
             <div class="row">
-                <div class="hero-account col-5 text-center mt-5">
-                    <h1>Your Account Info</h1>
-                    <div class="container ">
+                <div class="hero-account col-3 text-center mt-5">
+ 
+                       <table class="table table-hover" id="account-table">
+                        <thead>
+                          <tr><h1>Your Account</h1></tr>
+                          </thead>
+                      
+                          <tr>
+                            <td><h4>  First Name  </h4></td>
+                            <td><h5>{{this.firstName}}</h5></td>
+                          </tr>
+                             <tr>
+                            <td><h4>  Last Name  </h4></td>
+                            <td><h5>{{this.lastName}}</h5></td>
+                          </tr>
+                          <tr>
+                            <td><h4>User Name</h4></td>
+                            <td><h5>{{this.userName}}</h5></td>
+                          </tr>
+                           <tr>
+                            <td><h4>Email</h4></td>
+                            <td><h5>{{this.email}}</h5></td>
+                          </tr>
 
-                        <h2>First Name: {{this.firstName}}</h2>
-                        <h2>Last Name: {{this.lastName}}</h2>
-                        <h2>User Name: {{this.userName}}</h2>
-                        <h2>Email: {{this.email}}</h2>
-
-                    </div>
+        
+                        
+                        </tbody>
+                      </table>
                 </div>
             </div>
 
@@ -62,9 +80,9 @@
                                     placeholder="Must be 8-12 characters">
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Create Account</button>
+                        <button type="submit" class="btn btn-primary">Update Account</button>
                     </form>
-                    <p>Already have an account? <a href="signIn.html">Sign In</a></p>
+                    
                 </div>
 
             </div>
