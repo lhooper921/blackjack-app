@@ -210,12 +210,11 @@ opacity: 85%;
 }
 #bank{
   text-align: center;
- 
   opacity: 100%; 
+  margin-left: 20px;
   color: rgba(0, 0, 0, 0.603);
   background-color:white;
   padding: 50px;
-  transform: translate(-50%, 25%);
   border: 7px ridge gold;
 }
 #dealer-hand-total{
