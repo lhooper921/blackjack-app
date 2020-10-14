@@ -5,7 +5,8 @@
 2. [Demo](#demo)
 3. [Screenshots](#screenshots)  
 4. [Installation](#installation) 
-5. [License](#license)
+5. [License](#license)  
+6. [Authors](#authors) 
 
 
 ## Description
@@ -52,6 +53,26 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## Authors
+
+### Lauren Hooper
+
+GitHub: https://github.com/lhooper921  
+LinkedIn: https://www.linkedin.com/in/lauren-hooper-8157072a/
+
+### Konoa McKay
+
+GitHub: https://github.com/Kanoa89
+
+### King Ting
+
+GitHub: https://github.com/Nardacyon
+
+
+### Connor Melton
+
+GitHub: https://github.com/melty100
 
 ## Badges
 ![GitHub repo size](https://img.shields.io/github/repo-size/melty100/project2)
