@@ -1,5 +1,6 @@
 var db = require("../models");
 var passport = require("../config/passport");
+const { sequelize } = require("../models");
 
 
 module.exports = function (app) {
@@ -14,7 +15,6 @@ module.exports = function (app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", function(req, res) {
-    console.log(req);
     db.User.create({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
@@ -44,17 +44,24 @@ module.exports = function (app) {
       // The user is not logged in, send back an empty object
       res.json({});
     } else {
-      res.json({
-        name: req.user.userName,
-        chips: req.user.chips,
-        id: req.user.id
-      });
+      db.User.findAll({
+        where: {id: req.user.id}
+      }).then((userData) => {
+        res.json({
+          name: req.user.userName,
+          chips: userData[0]['dataValues'].chips,
+          id: req.user.id
+        });
+      })
+      .catch((err) => console.log(err));
     }
   });
 
-  app.put("/api/user_data", function(req, res) {
+  app.put("/api/update_user", function(req, res) {
 
-    db.User.update({ chips: req.body.chips}, {
+    let updateObj = req.body.handPlayed ? {chips: req.body.chips, gamesPlayed: sequelize.literal('gamesPlayed + 1')} : {chips: req.body.chips};
+
+    db.User.update(updateObj, {
       where: {
         id: req.body.id
       }
