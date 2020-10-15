@@ -1,16 +1,22 @@
 # Blackjack App 
 ![Blackjack App Logo](https://github.com/melty100/project2/blob/main/public/images/blackjack_logo.png)
 ## Table of Contents
-1. [Description](#description)
-2. [Demo](#demo)
-3. [Screenshots](#screenshots)  
-4. [Installation](#installation) 
-5. [License](#license)  
-6. [Authors](#authors) 
+1. [Description](#description)  
+2. [User Story](#user-story)
+3. [Demo](#demo)
+4. [Screenshots](#screenshots)  
+5. [Installation](#installation) 
+6. [License](#license)  
+7. [Authors](#authors) 
 
 
 ## Description
 This application allows users to play blackjack using their own account. This account stores their chips into a database, and diplays the top players on the leaderboard (including a leaderboard preview on the index page). This application also serves as a teaching method for a basic game of blackjack and the full rules of blackjack can be found on the rules page or by clicking "How to Play" on the index page. Account information can be viewed and updated on the account page. 
+
+## User Story
+AS a novice blackjack player,
+I WANT TO learn the rules of and practice playing simple blackjack,\
+SO THAT I can improve my skills and knowledge of the game.
 
 ## Demo
 
