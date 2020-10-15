@@ -14,7 +14,31 @@ This application allows users to play blackjack using their own account. This ac
 
 ## Demo
 
+### Youtube Demo
+https://youtu.be/zGYwvL7s8j8
+
 ## Screenshots
+
+### Registration Page
+<img src="https://github.com/melty100/project2/blob/main/public/images/register.PNG" width="1050" height="500" />
+
+### Sign In Page
+<img src="https://github.com/melty100/project2/blob/main/public/images/signIn.PNG" width="1050" height="500" />
+
+### Index Page
+<img src="https://github.com/melty100/project2/blob/main/public/images/index.PNG" width="1050" height="500"  />
+
+### Game Page
+<img src="https://github.com/melty100/project2/blob/main/public/images/game1.PNG" width="1050" height="500"  />
+
+### Game Page
+<img src="https://github.com/melty100/project2/blob/main/public/images/game2.PNG" width="1050" height="500"  />
+
+### Leaderboard
+<img src="https://github.com/melty100/project2/blob/main/public/images/leaderboard.PNG" width="1050" height="500"  />
+
+### Account Page
+<img src="https://github.com/melty100/project2/blob/main/public/images/account.PNG" width="1050" height="500"  />
 
 ## Installation
 ### Heroku
