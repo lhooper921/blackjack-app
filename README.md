@@ -14,7 +14,10 @@ This application allows users to play blackjack using their own account. This ac
 
 ## Demo
 
-### Youtube Demo
+### Game Demo
+<img src="https://github.com/melty100/project2/blob/main/public/images/4io0vu.gif" />
+
+### Youtube Full App Demo
 https://youtu.be/zGYwvL7s8j8
 
 ## Screenshots
