@@ -1,4 +1,7 @@
 # Blackjack App 
+
+Deployed Application  
+https://morning-plains-94430.herokuapp.com/
 ![Blackjack App Logo](https://github.com/melty100/project2/blob/main/public/images/blackjack_logo.png)
 ## Table of Contents
 1. [Description](#description)  
